@@ -14,6 +14,14 @@
         </li>
 
         <li class="nav-item active">
+          <%= link_to "Post", posts_path, class:"nav-link" %>
+        </li>
+
+        <li class="nav-item active">
+          <%= link_to "Pets", pets_path, class:"nav-link" %>
+        </li>
+
+        <li class="nav-item active">
           <%= link_to "About Us", home_about_path, class:"nav-link" %>
         </li>
         <li class="nav-item active">
@@ -32,12 +40,6 @@
       <% end %>
 
     </ul>
-
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-    </form>
 
   </div>
 </nav>

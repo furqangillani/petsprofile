@@ -2,11 +2,24 @@
 
 <h1>Posts</h1>
 
-<%= link_to "New post", new_post_path %>
+<p>
+  <%= link_to "New pet", new_pet_path %>
+</p>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-      <%= link_to "Show", post %>
-  <% end %>
-</div>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">First</th>
+    <th scope="col">Last</th>
+    <th scope="col">Handle</th>
+  </tr>
+  </thead>
+  <tbody id="post">
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  </tbody>
+</table>
+
+
