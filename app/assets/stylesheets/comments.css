@@ -8,6 +8,11 @@
 
 .comment {
     margin-left: 90%;
+    margin-top: 5px;
+}
+
+.reply {
+    margin-left: 220px;
 }
 
 .scroll {
@@ -18,6 +23,7 @@
 .card-header {
     background-color: darkgrey;
 }
+
 
 
 /* width */
@@ -40,4 +46,8 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: grey;
+}
+
+.fl {
+    margin-top: 17px;
 }

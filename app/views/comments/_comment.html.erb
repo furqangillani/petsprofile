@@ -1,9 +1,11 @@
 <article>
 
-  <p><%= comment.content %></p>
-  <small>By: <%= comment.user.email %></small>
+  <p>
+    <small><%= comment.user.email %></small>
+    | <%= comment.content %>
+  </p>
 
-  <a href="#" class="comment-form-display" >reply</a>
+  <a href="#" class="comment-form-display reply" >reply</a>
 
   <div class="comment-form">
     <%= render partial: 'comments/form', locals: { post: comment.post, parent: comment } %>

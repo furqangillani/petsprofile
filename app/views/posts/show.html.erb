@@ -3,32 +3,40 @@
   <div class="card-header">
 
       <%= current_user.email%>
-      <%= link_to "Back", posts_path %> |
-      <%= link_to "Edit", edit_post_path(@post) %>
+
+    <div class="float-right">
+      <%= link_to "Edit", edit_post_path(@post) %> |
+      <%= link_to "Back", posts_path %>
+    </div>
 
   </div>
   <div class="card-body">
     <p class="card-text"><%= @post.description %></p>
   </div>
   <div class="card-footer">
-      <%= @post.likes.count %> Likes
+    <%= @post.likes.count %> Likes
+    <div class="float-right">
       <% like = current_user.likes.find_by(post: @post) %>
       <% if like.nil? %>
-      <form action="/likes" method="post">
-        <input type="hidden" name="authenticity_token" value="form_authenticity_token">
-        <input type="hidden" name="like[post_id]" value="<%= @post.id %>">
-        <input type="submit" value="Like">
-      </form>
-    <% else %>
-      <form action="<%= like_path(like) %>" method="post">
-        <input type="hidden" name="authenticity_token" value="form_authenticity_token">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Unlike">
-      </form>
-    <% end %>
+        <form action="/likes" method="post">
+          <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+          <input type="hidden" name="like[post_id]" value="<%= @post.id %>">
+          <input type="submit" value="Like">
+        </form>
+      <% else %>
+        <form action="<%= like_path(like) %>" method="post">
+          <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Unlike">
+        </form>
+      <% end %>
+    </div>
+    <div class="fl">
+      <%= render partial: 'comments/form', locals: { post: @post, parent: nil } %>
+    </div>
+
   </div>
   <div class="card-body">
-    <%= render partial: 'comments/form', locals: { post: @post, parent: nil } %>
     <hr/>
     <div class="scroll">
       <%= render @post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
