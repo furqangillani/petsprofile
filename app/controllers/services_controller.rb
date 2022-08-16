@@ -1,8 +1,8 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [ :show, :edit, :update, :destroy ]
-
+  before_action :ensure_current_user
   def index
-    @services = Service.all
+    @services = current_user.services
   end
 
   def show
@@ -16,7 +16,7 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = Service.new(service_params)
+    @service = current_user.services.new(service_params)
       if @service.save
         redirect_to service_path(@service), notice: "Service was successfully created."
       else
@@ -39,10 +39,10 @@ class ServicesController < ApplicationController
 
   private
     def set_service
-      @service = Service.find(params[:id])
+      @service = current_user.services.find(params[:id])
     end
 
     def service_params
-      params.require(:service).permit(:title, :price)
+      params.require(:service).permit(:title, :description, :price)
     end
 end

@@ -1,8 +1,12 @@
 <table class="table">
   <tbody>
   <tr>
-    <td><%= post.title %></td>
     <td><%= post.description %></td>
+    <td>
+      <%= post.pictures.each do |picture| %>
+        <%= picture %>
+      <% end %>
+    </td>
     <td><%= link_to "Show", post %></td>
   </tr>
   </tbody>

@@ -1,8 +1,8 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [ :show, :edit, :update, :destroy ]
-
+  before_action :ensure_current_user
   def index
-    @pets = Pet.all
+    @pets = current_user.pets
   end
 
   def show
@@ -16,7 +16,8 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.new(pet_params)
+    @pet = current_user.pets.new(pet_params)
+
       if @pet.save
         redirect_to pet_path(@pet), notice: "Pet was successfully created."
       else
@@ -42,7 +43,7 @@ class PetsController < ApplicationController
   private
 
     def set_pet
-      @pet = Pet.find(params[:id])
+      @pet = current_user.pets.find(params[:id])
     end
 
     def pet_params
