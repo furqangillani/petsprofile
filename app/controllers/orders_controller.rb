@@ -10,13 +10,14 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @services = Service.all
   end
 
   def edit
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = @current_user.orders.new(order_params)
       if @order.save
         redirect_to order_path(@order), notice: "Order was successfully created."
       else
@@ -43,6 +44,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:title, :price)
+      params.require(:order).permit(:title, :price,:service_id)
     end
 end

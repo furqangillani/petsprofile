@@ -6,6 +6,10 @@
     border-style: solid;
     border-color: #2E2F30;
 }
+.img {
+    height: 50px;
+    width: 50px;
+}
 
 .card {
     width: 47rem;

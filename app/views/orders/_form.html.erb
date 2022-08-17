@@ -22,6 +22,10 @@
   </div>
 
   <div>
+    <%= form.collection_select :service_id, @services, :id, :title,include_blank: true %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

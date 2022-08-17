@@ -1,9 +1,7 @@
 <br>
 <div class="card">
   <div class="card-header">
-
     <div>
-
         <%= current_user.email%> <br>
         <small>Posted <%= time_ago_in_words(@post.created_at) %> ago.</small>
       <div class="float-right">
@@ -11,34 +9,17 @@
         <%= link_to "Back", posts_path %>
       </div>
     </div>
-
-
   </div>
   <div class="card-body">
     <p class="card-text"><%= @post.description %></p>
+    <p><%= image_tag @post.pictures.first, height: '350px', width: '700px' %></p>
+<!--    <%#= render partial: 'posts/post', locals: {post: @post} %> -->
   </div>
   <div class="card-footer">
-    <%= @post.likes.count %> Likes
-    <div class="float-right">
-      <% like = current_user.likes.find_by(post: @post) %>
-      <% if like.nil? %>
-        <form action="/likes" method="post">
-          <input type="hidden" name="authenticity_token" value="form_authenticity_token">
-          <input type="hidden" name="like[post_id]" value="<%= @post.id %>">
-          <input type="submit" value="Like">
-        </form>
-      <% else %>
-        <form action="<%= like_path(like) %>" method="post">
-          <input type="hidden" name="authenticity_token" value="form_authenticity_token">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Unlike">
-        </form>
-      <% end %>
-    </div>
+    <%= render partial: 'likes/button', locals: { likeable: @post} %>
     <div class="fl">
       <%= render partial: 'comments/form', locals: { post: @post, parent: nil } %>
     </div>
-
   </div>
   <div class="card-body">
     <hr/>
@@ -48,3 +29,4 @@
 
   </div>
 </div>
+<br>

@@ -3,8 +3,8 @@
   <tr>
     <td><%= post.description %></td>
     <td>
-      <%= post.pictures.each do |picture| %>
-        <%= picture %>
+      <% post.pictures.each do |picture| %>
+        <%= image_tag picture, height: '50px'%>
       <% end %>
     </td>
     <td><%= link_to "Show", post %></td>

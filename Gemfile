@@ -5,6 +5,10 @@ ruby "3.0.0"
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
+gem 'omniauth', '~> 2.1'
+gem 'omniauth-google-oauth2', '~> 1.0', '>= 1.0.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
