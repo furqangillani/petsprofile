@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     if @comment.save
-      redirect_to post_path(params[:post_id])
+      redirect_back(fallback_location: 'index')
     else
       redirect_to new_post_path
     end

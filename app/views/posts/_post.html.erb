@@ -10,6 +10,7 @@
                 <div class="h7 text-muted"><%= post.user.profile.last_name %></div>
               </div>
             </div>
+            <%= link_to "EDIT", edit_post_path(post)  %>|<%= button_to "DELETE", post_path(post), method: :delete %>
           </div>
 
         </div>
@@ -19,13 +20,15 @@
             <%= post.description %>
           </p>
           <div>
+            <% post.pictures.each do |pic| %>
+                <%= image_tag pic %>
+            <% end %>
             <% post.user.pets.each do |pet| %>
             <span class="badge badge-primary"><%= pet.name %></span>
               <%end%>
           </div>
         </div>
         <div class="card-footer">
-          <a href="#" class="card-link"><i class="fa fa-gittip"></i>
             <%= post.likes.count %> Likes
             <div class="float-right">
               <% like = post.likes.find_by(likeable: post) %>
@@ -44,23 +47,33 @@
                 </form>
               <% end %>
             </div>
-          </a>
           <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
           <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
         </div>
+        <%= render partial: 'comments/form', locals: { post: post, parent: nil } %>
         <div class="card-body">
           <% post.comments.each do |comment| %>
-             <p><%= comment.content %></p>
-            <%= render partial: 'likes/button', locals: { likeable: comment} %>
+              <div class="row">
+                <div class="col-8"><p>Parent Comment:<%= comment.content %> </p></div>
+                <div class="col-2" id="<%= post.id %>"> <a class="show_reply">Show Replies</a></div>
+                <div class="col-2"><span> <%= render partial: 'likes/button', locals: { likeable: comment} %></span></div>
+              </div>
+               <div class="offset-1" hidden>
+                 <%= render post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
+               </div>
             <hr>
           <% end %>
-          <%= render post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
-
-          <%= render partial: 'comments/form', locals: { post: post, parent: nil } %>
-
         </div>
 
       </div>
+      <script>
+        $(document).ready(function (){
+            $(".show_reply").click(function (){
+                alert(this.attr("id"));
+            });
+
+        })
+      </script>
 
 
 

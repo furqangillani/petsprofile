@@ -1,6 +1,5 @@
 class LikesController < ApplicationController
   def create
-    debugger
     @like = current_user.likes.new(like_params)
     if @like.save
       redirect_back(fallback_location: 'index')
@@ -11,7 +10,7 @@ class LikesController < ApplicationController
     @like = current_user.likes.find(params[:id])
     likeable = @like.likeable
     @like.destroy
-    redirect_back(fallback_location: posts_path)
+    redirect_back(fallback_location: 'index')
   end
 
   private

@@ -1,42 +1,85 @@
+<%#= form_with(model: post) do |form| %>
+  <%# if post.errors.any? %>
+<!--    <div style="color: red">-->
+<!--      <h2><%#= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>-->
+
+<!--      <ul>-->
+        <%# post.errors.each do |error| %>
+<!--          <li><%#= error.full_message %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
+
+<!--  <div class="card">-->
+<!--    <div class="card-header">-->
+<!--      <h4 class="card-text"> New Post </h4>-->
+<!--    </div>-->
+<!--    <div class="card-body">-->
+      <%#= form.label :description, style: "display: block" %>
+      <%#= form.text_area :description %>
+<!--      <div>-->
+        <%#= form.file_field :pictures, multiple: true %>
+<!--      </div><br>-->
+<!--    </div>-->
+<!--    <div class="card-footer ">-->
+<!--      <div style="width: 50%; float: right">-->
+<!--        <p class="float-right">-->
+          <%#= form.submit %>
+<!--        </p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<%# end %>
+
 <%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="card">
-    <div class="card-header">
-      <h4 class="card-text"> New Post </h4>
-    </div>
-    <div class="card-body">
-      <%= form.label :description, style: "display: block" %>
-      <%= form.text_area :description %>
-      <div>
-        <%= form.file_field :pictures, multiple: true %>
-      </div><br>
-    </div>
-    <div class="card-footer ">
-      <div style="width: 50%; float: left">
-        <h5>
-          <%= link_to "Delete", @posts, method: :delete%>
-        </h5>
+<div class="card gedf-card">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Make
+          a publication</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Images</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+        <div class="form-group">
+          <label class="sr-only" for="message">post</label>
+          <%= form.text_area :description ,id: "message",class: "form-control", placeholder: "What are you thinking?"%>
+        </div>
       </div>
-      <div style="width: 50%; float: right">
-        <p class="float-right">
-          <%= form.submit %>
-        </p>
+      <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+        <div class="form-group">
+          <div class="custom-file">
+            <%= form.file_field :pictures, multiple: true,class: "custom-file-input",id: "customFile"  %>
+            <label class="custom-file-label" for="customFile">Upload image</label>
+          </div>
+        </div>
+        <div class="py-4"></div>
+      </div>
+    </div>
+    <div class="btn-toolbar justify-content-between">
+      <div class="btn-group">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
+      <div class="btn-group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+          <i class="">ViewAble</i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+          <a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Public</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-user"></i> private</a>
+        </div>
       </div>
     </div>
   </div>
-
-
-<% end %>
+</div>
+<%end%>
 
 

@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [ :edit, :update, :destroy ]
 
   def index
+    @post = Post.new
     @posts = current_user.posts
     @service = current_user.services.limit(5)
   end

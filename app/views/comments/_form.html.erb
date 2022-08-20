@@ -4,7 +4,6 @@
   <% if !parent.nil? %>
     <input type="hidden", name="comment[parent_id]" value="<%= parent.id %>">
   <% end %>
-
   <div>
     <textarea name="comment[content]" ></textarea>
     <input class="comment" type="submit" value="Comment">
