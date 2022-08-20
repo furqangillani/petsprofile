@@ -5,6 +5,11 @@ class ServicesController < ApplicationController
     @services = current_user.services.order(created_at:'desc')
   end
 
+
+  def all_services
+    @services = Service.all.order(created_at:'desc')
+  end
+
   def show
   end
 

@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   end
 
   resources :pets
-  resources :services
+  resources :services do
+    collection do
+      get :all_services
+    end
+  end
   resources :orders
   resources :profiles
   resources :likes, only: [:create, :destroy]
