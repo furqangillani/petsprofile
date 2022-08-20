@@ -1,7 +1,8 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [ :show, :edit, :update, :destroy ]
   def index
-    @services = current_user.services
+    @service = Service.new
+    @services = current_user.services.order(created_at:'desc')
   end
 
   def show
@@ -19,7 +20,7 @@ class ServicesController < ApplicationController
       if @service.save
         redirect_to service_path(@service), notice: "Service was successfully created."
       else
-        render 'new'
+        redirect_to services_path,alert: "Please fill the inform"
       end
     end
 

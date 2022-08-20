@@ -1,39 +1,26 @@
-<%= form_with(model: service) do |form| %>
-
-  <% if service.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
-
-      <ul>
-        <% service.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="">
-      <p class="card-title">
-        <%= form.label :title, style: "display: block" %>
-        <%= form.text_field :title %>
-        <%= form.label :description, style: "display: block" %>
-        <%= form.text_field :description %></p>
-      <hr/>
-        <%= form.label :price, style: "display: block" %>
-        <%= form.number_field :price %></li>
-    </div>
-    <div class="card-body">
-      <div style="width: 50%; float: left">
-        <%= link_to "Back", services_path %>
-      </div>
-      <div style="width: 50%; float: right">
-        <p style="float: right">
-          <%= form.submit %>
-        </p>
+  <div id="loginbox" class="mainbox">
+    <div class="panel panel-info" >
+      <div class="panel-body" >
+        <%= form_with(model: service) do |form| %>
+          <label>Service Title</label>
+          <div style="margin-bottom: 25px" class="input-group">
+            <%= form.text_field :title,  class: 'form-control', style: 'border-radius:10px'%>
+            <% if service.errors.any? %>
+              <% service.errors.each do |error| %>
+                <div class="alert alert-danger col-sm-12">><%= error.full_message %></div>
+              <% end %>
+            <% end %>
+          </div>
+          <label>Service Description</label>
+          <div style="margin-bottom: 25px" class="input-group">
+            <%= form.text_area :description, class: 'form-control', style: 'border-radius:10px' %>
+          </div>
+          <%= form.label :price, style: "display: block" %>
+          <div style="margin-bottom: 25px" class="input-group">
+            <%= form.number_field :price,class: 'form-control', style: 'border-radius:10px' %>
+          </div>
+          <%= form.submit class:'btn btn-primary' %>
+          <%end%>
       </div>
     </div>
   </div>
-
-<% end %>
