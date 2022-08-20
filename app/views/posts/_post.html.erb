@@ -25,12 +25,39 @@
           </div>
         </div>
         <div class="card-footer">
-          <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+          <a href="#" class="card-link"><i class="fa fa-gittip"></i>
+            <%= post.likes.count %> Likes
+            <div class="float-right">
+              <% like = post.likes.find_by(likeable: post) %>
+              <% if like.nil? %>
+                <form action="/likes" method="post">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="like[likeable_id]" value="<%= post.id %>">
+                  <input type="hidden" name="like[likeable_type]" value="<%= post.class.to_s %>">
+                  <input type="submit" value="Like">
+                </form>
+              <% else %>
+                <form action="<%= like_path(like) %>" method="post">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type="submit" value="Unlike">
+                </form>
+              <% end %>
+            </div>
+          </a>
           <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
           <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
         </div>
         <div class="card-body">
-         
+          <% post.comments.each do |comment| %>
+             <p><%= comment.content %></p>
+            <%= render partial: 'likes/button', locals: { likeable: comment} %>
+            <hr>
+          <% end %>
+          <%= render post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
+
+          <%= render partial: 'comments/form', locals: { post: post, parent: nil } %>
+
         </div>
 
       </div>
