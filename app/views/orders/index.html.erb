@@ -1,14 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Orders</h1>
+
+<div class="card" style="width: 18rem;">
+  <div style="padding-top: 15px">
+    <div style="width: 50%; float: left">
+      <strong class="card-text">Orders</strong>
+    </div>
+    <div style="width: 50%; float: right">
+      <p style="float: right">
+        <%= link_to "New order", new_order_path %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<br>
 
 <div id="orders">
   <% @orders.each do |order| %>
     <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New order", new_order_path %>

@@ -24,9 +24,41 @@
   <div>
     <%= form.label :age, style: "display: block" %>
     <%= form.text_field :age %>
-  </div>
+  </div><br>
 
   <div>
     <%= form.submit %>
   </div>
+
+
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      <h5 class="card-text" style="text-align: center">Add Pet</h5>
+    </div>
+    <img src="..." class="card-img-top" alt="...">
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <%= form.label :name, style: "display: block" %>
+        <%= form.text_field :name %></li>
+      <li class="list-group-item">
+        <%= form.label :breed, style: "display: block" %>
+        <%= form.text_field :breed %></li>
+      <li class="list-group-item">
+        <%= form.label :age, style: "display: block" %>
+        <%= form.text_field :age %></li>
+    </ul>
+    <div class="card-footer">
+      <div style="float: left">
+        <%= link_to "Back to pets", pets_path %>
+      </div>
+      <div style="float: right;">
+        <p style="float: left">
+          <%= form.submit %>
+        </p>
+      </div>
+    </div>
+  </div>
+
 <% end %>

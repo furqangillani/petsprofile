@@ -1,13 +1,4 @@
-<h1>Editing post</h1>
 
 <p>
-  <%= button_to "Delete", @post, method: :delete %>
+  <%= render "form", post: @post %>
 </p>
-
-<%= render "form", post: @post %>
-
-<br>
-
-<div>
-  <%= link_to "Back", posts_path %>
-</div>

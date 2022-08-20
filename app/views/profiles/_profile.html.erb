@@ -1,12 +1,12 @@
 <div id="<%= dom_id profile %>">
-  <p>
-    <strong>First name:</strong>
-    <%= profile.first_name %>
-  </p>
 
+  <p><% profile.picture.each do |pic| %>
+      <%= image_tag pic, height: '350px', width: '700px' %>
+    <% end %>
+  </p>
   <p>
-    <strong>Last name:</strong>
-    <%= profile.last_name %>
+    <%= profile.first_name %> <%= profile.last_name %>
   </p>
 
 </div>
+

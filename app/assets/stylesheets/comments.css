@@ -1,78 +1,100 @@
-.sub-comment {
-    padding-left: 10px;
-}
+/*.sub-comment {*/
+/*    padding-left: 10px;*/
+/*}*/
 
-.card {
-    border-style: solid;
-    border-color: #2E2F30;
-}
-.img {
-    height: 50px;
-    width: 50px;
-}
+/*.navbar{*/
+/*    border-radius: 5px;*/
+/*    padding: 5px;*/
+/*    box-shadow: 10px 10px 5px #aaaaaa;*/
+/*}*/
 
-.card {
-    width: 47rem;
-    margin-left: 150px;
-}
+/*.flash{*/
+/*    margin-top: 10px;*/
+/*    background-color: lightgreen;*/
+/*}*/
 
-.float-right {
-}
+/*.card {*/
+/*    border-style: solid;*/
+/*    border-color: #2E2F30;*/
+/*}*/
+/*.img {*/
+/*    height: 50px;*/
+/*    width: 50px;*/
+/*}*/
 
-.comment-form {
-    display: none;
-}
+/*.card {*/
+/*    width: 47rem;*/
+/*    margin-left: 150px;*/
+/*    border-radius: 10px;*/
+/*    padding: 5px;*/
+/*    box-shadow: 10px 10px 5px #aaaaaa;*/
+/*}*/
 
-.comment {
-    float: right;
-    margin-top: 1px;
-    height: 50px;
-}
+/*.float-right {*/
+/*}*/
 
-.reply {
-    float: right;
-    margin-right: 20px;
-}
+/*.comment-form {*/
+/*    display: none;*/
+/*}*/
 
-.scroll {
-    max-height: 250px;
-    overflow-y: auto;
-}
+/*.comment {*/
+/*    float: right;*/
+/*    margin-top: 1px;*/
+/*    height: 50px;*/
+/*}*/
 
-textarea {
-    resize: none;
-    height: 50px;
-    width: 550px;
-}
+/*.reply {*/
+/*    float: right;*/
+/*    margin-right: 20px;*/
+/*}*/
 
-.card-header {
-    background-color: darkgrey;
-}
+/*.scroll {*/
+/*    max-height: 250px;*/
+/*    overflow-y: auto;*/
+/*}*/
+
+/*textarea {*/
+/*    resize: none;*/
+/*    height: 50px;*/
+/*    width: 550px;*/
+/*}*/
+
+/*.card-header {*/
+/*    background-color: darkgrey;*/
+/*}*/
 
 
 
-/* width */
-::-webkit-scrollbar {
-    width: 12px;
-}
+/*!* width *!*/
+/*::-webkit-scrollbar {*/
+/*    width: 12px;*/
+/*}*/
 
-/* Track */
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
-}
+/*!* Track *!*/
+/*::-webkit-scrollbar-track {*/
+/*    box-shadow: inset 0 0 5px grey;*/
+/*    border-radius: 10px;*/
+/*}*/
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: darkgrey;
-    border-radius: 10px;
-}
+/*!* Handle *!*/
+/*::-webkit-scrollbar-thumb {*/
+/*    background: darkgrey;*/
+/*    border-radius: 10px;*/
+/*}*/
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: grey;
-}
+/*!* Handle on hover *!*/
+/*::-webkit-scrollbar-thumb:hover {*/
+/*    background: grey;*/
+/*}*/
 
-.fl {
-    margin-top: 17px;
-}
+/*.fl {*/
+/*    margin-top: 17px;*/
+/*}*/
+
+/*.title {*/
+/*    text-align: center;*/
+/*}*/
+
+/*.text {*/
+/*    text-align: center;*/
+/*}*/

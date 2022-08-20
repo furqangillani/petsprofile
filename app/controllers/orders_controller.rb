@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [ :show, :edit, :update, :destroy ]
-  before_action :ensure_current_user
   def index
     @orders = Order.all
   end
@@ -17,7 +16,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = @current_user.orders.new(order_params)
+    @order = current_user.orders.new(order_params)
       if @order.save
         redirect_to order_path(@order), notice: "Order was successfully created."
       else

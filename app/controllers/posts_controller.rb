@@ -1,10 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [ :edit, :update, :destroy ]
-  before_action :ensure_current_user
-
 
   def index
     @posts = current_user.posts
+    @service = current_user.services.limit(5)
   end
 
   def show

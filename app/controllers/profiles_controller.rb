@@ -1,8 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [ :show, :edit, :update, :destroy ]
-  before_action :ensure_current_user
   def index
-    @profiles = Profile.all
+    @profiles = current_user.profile
+    @post = current_user.posts
   end
 
   def show
@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+
   end
 
   def create

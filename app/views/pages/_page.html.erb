@@ -1,16 +1,18 @@
 <br>
 <div class="card">
   <div class="card-header">
-    <div style="width: 50%; float: left">
-      <%= @post.user.full_name %> <br>
-      <small>posted <%= time_ago_in_words(@post.created_at) %> ago.</small>
-    </div>
-    <div style="width: 50%; float: right">
-      <p style="float: right; margin-top: 15px">
+
+    <div>
+
+      <%= current_user.email %> <br>
+      <small>Posted <%= time_ago_in_words(@post.created_at) %> ago.</small>
+      <div class="float-right">
         <%= link_to "Edit", edit_post_path(@post) %> |
         <%= link_to "Back", posts_path %>
-      </p>
+      </div>
     </div>
+
+
   </div>
   <div class="card-body">
     <p class="card-text"><%= @post.description %></p>
@@ -34,4 +36,3 @@
 
   </div>
 </div>
-<br>

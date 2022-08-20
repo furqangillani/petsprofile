@@ -11,14 +11,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-    <div>
-      <%= form.file_field :pictures, multiple: true %>
-    </div><hr/>
-    <div>
-      <%= form.submit %>
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-text"> New Post </h4>
+    </div>
+    <div class="card-body">
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_area :description %>
+      <div>
+        <%= form.file_field :pictures, multiple: true %>
+      </div><br>
+    </div>
+    <div class="card-footer ">
+      <div style="width: 50%; float: left">
+        <h5>
+          <%= link_to "Delete", @posts, method: :delete%>
+        </h5>
+      </div>
+      <div style="width: 50%; float: right">
+        <p class="float-right">
+          <%= form.submit %>
+        </p>
+      </div>
     </div>
   </div>
+
+
 <% end %>
+
+

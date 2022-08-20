@@ -1,10 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @profile %>
+<div class="card w-75 border-primary mb-3">
+  <% @profile.picture.each do |single_image| %>
+    <%= image_tag single_image, height: '350px', width: '700px' %>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= render @profile %>
+    </h5>
 
-<div>
-  <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
-  <%= link_to "Back to profiles", profiles_path %>
+    <%= link_to "Edit", edit_profile_path(@profile) %>
 
-  <%= button_to "Destroy this profile", @profile, method: :delete %>
-</div>
+    <%= button_to "Destroy this profile", @profile, method: :delete %>
+  </div>
+</div><br>
+

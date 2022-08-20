@@ -11,21 +11,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      <h5 style="text-align: center">New Order</h5>
+    </div>
+    <div>
+      <img src="..." class="card-img-top" alt="...">
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title %></li>
+      <li class="list-group-item">
+        <%= form.label :price, style: "display: block" %>
+        <%= form.number_field :price %></li>
+      <li class="list-group-item">Select Category <%= form.collection_select :service_id, @services, :id, :title,include_blank: true %></li>
+    </ul>
+    <div class="card-body">
+      <div style="width: 50%; float: left">
+        <%= link_to "Back", orders_path %>
+      </div>
+      <div style="width: 50%; float: right">
+        <p style="float: right">
+          <%= form.submit %>
+        </p>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.collection_select :service_id, @services, :id, :title,include_blank: true %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

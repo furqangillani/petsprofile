@@ -1,6 +1,5 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [ :show, :edit, :update, :destroy ]
-  before_action :ensure_current_user
   def index
     @services = current_user.services
   end

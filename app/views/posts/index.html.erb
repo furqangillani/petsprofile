@@ -1,22 +1,60 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Posts</h1>
-
-<p>
-  <%= link_to "New post", new_post_path %>
-</p>
-
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th scope="col">Description</th>
-  </tr>
-  </thead>
-  <tbody id="post">
-    <% @posts.each do |post| %>
-      <%= render post %>
-    <% end %>
-  </tbody>
-</table>
-
-
+<div class="container-fluid gedf-wrapper">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="h5">@<%= current_user.profile.first_name %></div>
+          <div class="h7 text-muted">Fullname : <%= current_user.profile.first_name %>  <%= current_user.profile.last_name %> </div>
+          <div class="h7">Developer of web applications, JavaScript, PHP, Java, Python, Ruby, Java, Node.js,
+            etc.
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="h6 text-muted">Services</div>
+            <div class="h5"><%=services_count %></div>
+          </li>
+          <li class="list-group-item">
+            <div class="h6 text-muted">Orders Place By You</div>
+            <div class="h5"><%= orders_count %></div>
+          </li>
+          <li class="list-group-item">
+            <div class="h6 text-muted">Orders Recieved</div>
+            <div class="h5"><%= orders_recieved_against_service %></div>
+          </li>
+          <li class="list-group-item">User info <%= link_to 'See' %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6 gedf-main">
+      <% @posts.each do |post| %>
+        <%= render post %>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <div class="card gedf-card">
+        <div class="card-body">
+          <h5 class="card-title"><%= current_user.profile.first_name %>   <%= current_user.profile.last_name %> Services</h5>
+          <%= link_to 'All Services', class: 'card-link' %>
+          <hr>
+          <% @service.each do |record| %>
+          <h3 class="card-subtitle mb-2 text-muted"> Service Name: <%= record.title %></h3>
+          <a href="#" class="card-link">Details</a>
+          <%end%>
+          <hr>
+          <%= link_to 'Add New Services', class: 'card-link' %>
+        </div>
+      </div>
+      <div class="card gedf-card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+            card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

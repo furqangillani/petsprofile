@@ -1,17 +1,21 @@
 <div id="<%= dom_id pet %>">
-  <p>
-    <strong>Name:</strong>
-    <%= pet.name %>
-  </p>
 
-  <p>
-    <strong>Breed:</strong>
-    <%= pet.breed %>
-  </p>
 
-  <p>
-    <strong>Age:</strong>
-    <%= pet.age %>
-  </p>
+</div>
 
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="">
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <strong>Name: </strong><%= pet.name %></li>
+    <li class="list-group-item">
+      <strong>Breed: </strong><%= pet.breed %></li>
+    <li class="list-group-item">
+      <strong>Age: </strong><%= pet.age %></li>
+  </ul>
+  <div class="card-body">
+    <%= link_to "Show this pet", pet %>
+  </div>
 </div>

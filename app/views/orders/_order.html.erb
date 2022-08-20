@@ -1,12 +1,33 @@
 <div id="<%= dom_id order %>">
-  <p>
-    <strong>Title:</strong>
-    <%= order.title %>
-  </p>
 
-  <p>
-    <strong>Price:</strong>
-    <%= order.price %>
-  </p>
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      <h5 class="card-title" style="text-align: center;">Order# <%= order.id %></h5>
+    </div>
+    <div class="card-body">
+      <img src="..." class="card-img-top" alt="...">
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>
+          Title:
+        </strong>
+        <%= order.title %>
+      </li>
+      <li class="list-group-item">
+        <strong>
+          Price:
+        </strong>
+        <%= order.price %>
+      </li>
+    </ul>
+    <div class="card-body">
+      <p style="float: left">
+        <%= link_to "Show", order %>
+      </p>
+    </div>
+  </div>
 
 </div>
+
+<br>

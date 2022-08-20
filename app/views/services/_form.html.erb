@@ -1,4 +1,5 @@
 <%= form_with(model: service) do |form| %>
+
   <% if service.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
@@ -11,22 +12,28 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="">
+      <p class="card-title">
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title %>
+        <%= form.label :description, style: "display: block" %>
+        <%= form.text_field :description %></p>
+      <hr/>
+        <%= form.label :price, style: "display: block" %>
+        <%= form.number_field :price %></li>
+    </div>
+    <div class="card-body">
+      <div style="width: 50%; float: left">
+        <%= link_to "Back", services_path %>
+      </div>
+      <div style="width: 50%; float: right">
+        <p style="float: right">
+          <%= form.submit %>
+        </p>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
