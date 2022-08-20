@@ -1,9 +1,8 @@
 class TypesController < ApplicationController
   before_action :set_type, only: [ :show, :edit, :update, :destroy ]
-  before_action :ensure_current_user
 
   def index
-    @types = Type.all
+    @types = current_user.types
   end
 
   def show

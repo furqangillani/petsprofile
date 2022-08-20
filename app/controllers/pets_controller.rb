@@ -1,6 +1,5 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [ :show, :edit, :update, :destroy ]
-  before_action :ensure_current_user
   def index
     @pets = current_user.pets
   end

@@ -1,25 +1,23 @@
-<p style="color: green"><%= notice %></p>
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-text" style="text-align: center;">Pets</h5>
+<div class="container">
+  <div class="row">
+    <% @pets.each do |pet| %>
+    <div class="col-md-4">
+      <div class="card user-card">
+        <div class="card-header">
+          <h5><%= pet.name %> Profile</h5>
+        </div>
+        <div class="card-block">
+          <div class="user-image">
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-radius" alt="User-Profile-Image">
+          </div>
+          <h6 class="f-w-600 m-t-25 m-b-10"><%= pet.name %></h6>
+          <p class="text-muted">Bread : <%= pet.breed %> | Gendder Male | Born <%= pet.created_at %></p>
+          <hr>
+          <p class="text-muted m-t-15">Pet Age: <%= pet.age %> </p>
+          <p class="m-t-15 text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
-
-<br>
-
-<div id="pets">
-  <% @pets.each do |pet| %>
-    <%= render pet %>
-    <br>
-  <% end %>
-</div>
-
-</div>
-
-
-<br>
-
-
-
-<%= link_to "New pet", new_pet_path %>

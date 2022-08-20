@@ -1,33 +1,18 @@
-<div id="<%= dom_id order %>">
-
-  <div class="card" style="width: 18rem;">
-    <div class="card-header">
-      <h5 class="card-title" style="text-align: center;">Order# <%= order.id %></h5>
-    </div>
-    <div class="card-body">
-      <img src="..." class="card-img-top" alt="...">
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <strong>
-          Title:
-        </strong>
-        <%= order.title %>
-      </li>
-      <li class="list-group-item">
-        <strong>
-          Price:
-        </strong>
-        <%= order.price %>
-      </li>
-    </ul>
-    <div class="card-body">
-      <p style="float: left">
-        <%= link_to "Show", order %>
-      </p>
-    </div>
-  </div>
-
-</div>
-
-<br>
+      <div class="col-md-4">
+        <div class="card user-card">
+          <div class="card-header">
+            <h5><%= order.title %></h5>
+          </div>
+          <div class="card-block">
+            <div class="user-image">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-radius" alt="User-Profile-Image">
+            </div>
+            <h6 class="f-w-600 m-t-25 m-b-10"><%= order.title%></h6>
+            <p class="text-muted">Price  <%= order.service.price%></p>
+            <p class="text-muted">Order BY:  <%= order.user.profile.first_name%>    <%= order.user.profile.last_name%></p>
+            <p class="text-muted">Order BY User EMAIL: <%= order.user.email%></p>
+            <hr>
+            <p class="m-t-15 text-muted"><%= order.service.description %>.</p>
+          </div>
+        </div>
+      </div>

@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [ :show, :edit, :update, :destroy ]
   def index
-    @orders = Order.all
+    @orders = current_user.services.map { |item| item.orders }
   end
 
   def show
