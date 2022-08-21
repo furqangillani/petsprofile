@@ -37,11 +37,13 @@
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Make
-          a publication</a>
+        <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Post</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Images</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pets-tab" data-toggle="tab" href="#pets" role="tab" aria-controls="pets" aria-selected="false">Pet</a>
       </li>
     </ul>
   </div>
@@ -62,6 +64,13 @@
         </div>
         <div class="py-4"></div>
       </div>
+      <div class="tab-pane fade" id="pets" role="tabpanel" aria-labelledby="pets-tab">
+
+            <p class="list-group-item">Select Pet <%= form.collection_select :pet_id, @pets, :id, :name,include_blank: true %></p>
+
+
+        <div class="py-4"></div>
+      </div>
     </div>
     <div class="btn-toolbar justify-content-between">
       <div class="btn-group">
@@ -70,11 +79,11 @@
       <div class="btn-group">
         <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-          <i class="">ViewAble</i>
+          <p class="">Privacy</p>
         </button>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-          <a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Public</a>
-          <a class="dropdown-item" href="#"><i class="fa fa-user"></i> private</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Public </a>
+          <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Private </a>
         </div>
       </div>
     </div>

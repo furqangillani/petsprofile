@@ -1,42 +1,25 @@
-<%= form_with(model: order) do |form| %>
-  <% if order.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-      <ul>
-        <% order.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="card" style="width: 18rem;">
-    <div class="card-header">
-      <h5 style="text-align: center">New Order</h5>
-    </div>
-    <div>
-      <img src="..." class="card-img-top" alt="...">
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <%= form.label :title, style: "display: block" %>
-        <%= form.text_field :title %></li>
-      <li class="list-group-item">
+<div id="loginbox" class="mainbox">
+  <div class="panel panel-info" >
+    <div class="panel-body" >
+      <%= form_with(model: order) do |form| %>
+        <label>Order Title</label>
+        <div style="margin-bottom: 25px" class="input-group">
+          <%= form.text_field :title,  class: 'form-control', style: 'border-radius:10px'%>
+          <%# if title.errors.any? %>
+            <%# title.errors.each do |error| %>
+<!--              <div class="alert alert-danger col-sm-12">><%#= error.full_message %></div>-->
+            <%# end %>
+          <%# end %>
+        </div>
         <%= form.label :price, style: "display: block" %>
-        <%= form.number_field :price %></li>
-      <li class="list-group-item">Select Category <%= form.collection_select :service_id, @services, :id, :title,include_blank: true %></li>
-    </ul>
-    <div class="card-body">
-      <div style="width: 50%; float: left">
-        <%= link_to "Back", orders_path %>
-      </div>
-      <div style="width: 50%; float: right">
-        <p style="float: right">
-          <%= form.submit %>
-        </p>
-      </div>
+        <div style="margin-bottom: 25px" class="input-group">
+          <%= form.number_field :price,class: 'form-control', style: 'border-radius:10px' %>
+        </div>
+        <div style="margin-bottom: 25px" class="input-group">
+          <p class="list-group-item">Select Service <%= form.collection_select :service_id, @services, :id, :title,include_blank: true %></p>
+        </div>
+        <%= form.submit class:'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
-
-<% end %>
+</div>

@@ -3,8 +3,10 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = current_user.posts
-    @service = current_user.services.limit(5)
+    @pets = current_user.pets
+    @posts = current_user.pets.map { |item| item.posts }
+    @service = current_user.services.limit(3)
+    @order = current_user.orders.limit(3)
   end
 
   def show
@@ -13,6 +15,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @pets = Pet.where(status: true)
   end
 
   def edit
@@ -49,6 +52,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:description, pictures: [])
+      params.require(:post).permit(:description, :pet_id, pictures: [])
     end
 end

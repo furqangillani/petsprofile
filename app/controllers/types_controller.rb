@@ -9,15 +9,14 @@ class TypesController < ApplicationController
   end
 
   def new
-    @type = Type.new
+    @type = Type.newpos
   end
 
   def edit
   end
 
   def create
-    @type = Type.new(type_params)
-    @type.user_id = current_user.id
+    @type = current_user.types.new(type_params)
       if @type.save
         redirect_to type_path(@type), notice: "Type was successfully created."
       else
@@ -42,7 +41,7 @@ class TypesController < ApplicationController
   private
 
     def set_type
-      @type = Type.find(params[:id])
+      @type = current_user.types.find(params[:id])
     end
 
     def type_params

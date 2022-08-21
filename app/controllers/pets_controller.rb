@@ -1,7 +1,12 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [ :show, :edit, :update, :destroy ]
   def index
+    @pet = Pet.new
     @pets = current_user.pets
+  end
+
+  def all_pets
+    @pets = current_user.pets(created_at:'desc')
   end
 
   def show
@@ -46,6 +51,6 @@ class PetsController < ApplicationController
     end
 
     def pet_params
-      params.require(:pet).permit(:name, :breed, :age)
+      params.require(:pet).permit(:name, :breed, :age, :gender, :description, :bio)
     end
 end

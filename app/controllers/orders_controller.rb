@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [ :show, :edit, :update, :destroy ]
   def index
+    @services = Service.all
     @orders = current_user.services.map { |item| item.orders }
   end
 
@@ -43,6 +44,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:title, :price,:service_id)
+      params.require(:order).permit(:title, :price, :service_id)
     end
 end

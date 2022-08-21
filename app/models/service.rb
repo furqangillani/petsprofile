@@ -1,7 +1,7 @@
 class Service < ApplicationRecord
 
   belongs_to :user
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   validates :title, presence:true
   validates :description,presence:true

@@ -1,21 +1,19 @@
-<div id="<%= dom_id pet %>">
-
-
-</div>
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="">
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      <strong>Name: </strong><%= pet.name %></li>
-    <li class="list-group-item">
-      <strong>Breed: </strong><%= pet.breed %></li>
-    <li class="list-group-item">
-      <strong>Age: </strong><%= pet.age %></li>
-  </ul>
-  <div class="card-body">
-    <%= link_to "Show this pet", pet %>
+<div class="col-md-4">
+  <div class="card user-card">
+    <div class="card-header">
+      <h5>by: <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></h5>
+      <%= link_to "EDIT", edit_pet_path(pet) %> | <%= button_to "DELETE", pet_path(pet), method: :delete %>
+    </div>
+    <div class="card-block">
+      <div class="user-image">
+        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-radius" alt="User-Profile-Image">
+      </div>
+      <h6 class="f-w-600 m-t-25 m-b-10">Name: <%= pet.name %></h6>
+      <p class="text-muted">Breed: <%= pet.breed %></p>
+      <p class="text-muted">Gender: <%= pet.gender %></p>
+      <p class="text-muted m-t-15">Age: <%= pet.age %> </p>
+      <hr>
+      <p class="m-t-15 text-muted"><%= pet.description %> </p>
+    </div>
   </div>
 </div>

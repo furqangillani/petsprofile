@@ -1,6 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
+<p class="flash" style="color: green"><%= notice %></p>
 
 <%= render @pet %>
 
-<%= link_to "Back", pets_path %>
+<div>
+  <%= link_to "Edit", edit_pet_path(@pet) %> |
+  <%= link_to "Back", pets_path %>
+
+  <%= button_to "Destroy", @pet, method: :delete %>
+</div>

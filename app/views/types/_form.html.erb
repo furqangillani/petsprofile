@@ -1,27 +1,29 @@
-<%= form_with(model: type) do |form| %>
-  <% if type.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(type.errors.count, "error") %> prohibited this type from being saved:</h2>
-
-      <ul>
-        <% type.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div id="loginbox" class="mainbox">
+  <div class="panel panel-info" >
+    <div class="panel-body" >
+      <%= form_with(model: type) do |form| %>
+        <label>Category Name</label>
+        <div style="margin-bottom: 25px" class="input-group">
+          <%= form.text_field :name,  class: 'form-control', style: 'border-radius:10px'%>
+          <%# if type.errors.any? %>
+            <%# type.errors.each do |error| %>
+<!--              <div class="alert alert-danger col-sm-12">><%#= error.full_message %></div>-->
+            <%# end %>
+          <%# end %>
+        </div>
+        <label>Category Description</label>
+        <div style="margin-bottom: 25px" class="input-group">
+          <%= form.text_area :description, class: 'form-control', style: 'border-radius:10px' %>
+        </div>
+        <%= form.submit class:'btn btn-primary' %>
+      <%end%>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
   </div>
+</div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+
+
+
+
+

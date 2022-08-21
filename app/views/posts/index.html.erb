@@ -4,15 +4,15 @@
       <div class="card">
         <div class="card-body">
           <div class="h5">@<%= current_user.profile.first_name %></div>
-          <div class="h7 text-muted">Fullname : <%= current_user.profile.first_name %>  <%= current_user.profile.last_name %> </div>
-          <div class="h7">Developer of web applications, JavaScript, PHP, Java, Python, Ruby, Java, Node.js,
-            etc.
+          <div class="h7 text-muted">Name : <%= current_user.profile.first_name %> <%= current_user.profile.last_name %> </div>
+          <div class="h7">
+            <%= current_user.bio %>
           </div>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <div class="h6 text-muted">Services</div>
-            <div class="h5"><%=services_count %></div>
+            <div class="h5"><%= services_count %></div>
           </li>
           <li class="list-group-item">
             <div class="h6 text-muted">Orders Place By You</div>
@@ -22,38 +22,44 @@
             <div class="h6 text-muted">Orders Recieved</div>
             <div class="h5"><%= orders_recieved_against_service %></div>
           </li>
-          <li class="list-group-item">User info <%= link_to 'See' %></li>
+          <li class="list-group-item">User info <%= link_to 'See', profiles_path %></li>
         </ul>
       </div>
     </div>
     <div class="col-md-6 gedf-main">
-      <%= render 'posts/form', post: @post %>
-      <% @posts.each do |post| %>
-        <%= render post %>
-      <% end %>
+
+        <%= render 'posts/form', post: @post %>
+          <% @posts.each do |post| %>
+          <% if post.pet.status == true %>
+            <%= render post %>
+          <% end %>
+        <% end %>
     </div>
     <div class="col-md-3">
       <div class="card gedf-card">
         <div class="card-body">
-          <h5 class="card-title"><%= current_user.profile.first_name %>   <%= current_user.profile.last_name %> Services</h5>
-          <%= link_to 'All Services', class: 'card-link' %>
+          <h5 class="card-title"><%= current_user.profile.first_name %> <%= current_user.profile.last_name %> Services</h5>
+          <%= link_to 'All Services', services_path, class: 'card-link' %>
           <hr>
           <% @service.each do |record| %>
-          <h3 class="card-subtitle mb-2 text-muted"> Service Name: <%= record.title %></h3>
-          <a href="#" class="card-link">Details</a>
+          <h3 class="card-subtitle mb-2 text-muted">Name: <%= record.title %></h3>
+            <%= link_to "Details", services_path, class: "card-link" %>
           <%end%>
           <hr>
-          <%= link_to 'Add New Services', class: 'card-link' %>
+          <%= link_to 'Add New Service', services_path, class: 'card-link' %>
         </div>
       </div>
       <div class="card gedf-card">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+          <h5 class="card-title"><%= current_user.profile.first_name %> <%= current_user.profile.last_name %> Orders</h5>
+          <%= link_to 'All Orders', orders_path, class: 'card-link' %>
+          <hr>
+          <% @order.each do |record| %>
+            <h3 class="card-subtitle mb-2 text-muted">Name: <%= record.title %></h3>
+            <%= link_to "Details", orders_path, class: "card-link" %>
+          <%end%>
+          <hr>
+          <%= link_to 'Add New Order', orders_path, class: 'card-link' %>
         </div>
       </div>
     </div>

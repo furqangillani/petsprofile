@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
 
 
   def all_services
-    @services = Service.all.order(created_at:'desc')
+    @services = current_user.services.order(created_at:'desc')
   end
 
   def show

@@ -1,17 +1,18 @@
-<!--<p style="color: green"><%#= notice %></p>-->
-
-<!--<h1>Types</h1>-->
-
-<!--<div id="types">-->
-  <%# @types.each do |type| %>
-    <%#= render type %>
-<!--    <p>-->
-      <%#= link_to "Show this type", type %>
-<!--    </p>-->
-  <%# end %>
-<!--</div>-->
-
-<%#= link_to "New type", new_type_path %>
-
-
-
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card user-card">
+        <div class="card-header">
+          <h5>Add New Types</h5>
+          <p style="color: red"><%= alert %></p>
+        </div>
+        <div class="card-block">
+          <%= render "form", type: @type %>
+        </div>
+      </div>
+    </div>
+    <% @types.each do |type| %>
+      <%= render type %>
+    <% end %>
+  </div>
+</div>
