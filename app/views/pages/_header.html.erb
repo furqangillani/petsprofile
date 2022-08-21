@@ -10,7 +10,11 @@
       <% if user_signed_in? %>
 
         <li class="nav-item active">
+          <% if current_user.profile.present? %>
           <%= link_to current_user.profile.first_name, profiles_path, class:"nav-link" %>
+          <%else%>
+            <%= link_to "Create Profile",new_profile_path, class:"nav-link" %>
+        <%end%>
         </li>
 
         <li class="nav-item active">

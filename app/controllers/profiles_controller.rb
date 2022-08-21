@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @service = current.user.services
+    @service = current_user.services
   end
 
   def new

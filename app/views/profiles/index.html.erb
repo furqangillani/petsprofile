@@ -10,7 +10,12 @@
           <div class="author-card-avatar"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Daniel Adams">
           </div>
           <div class="author-card-details">
-            <h5 class="author-card-name text-lg" style="padding-top: 20px"><%= current_user.profile.first_name %> <%= current_user.profile.last_name %></h5>
+            <h5 class="author-card-name text-lg" style="padding-top: 20px">
+              <% if current_user.profile.present? %>
+                  <%= current_user.profile.first_name %>
+                  <%= current_user.profile.last_name %>
+              <%end %>
+            </h5>
             <span class="author-card-position">Bio: <%= current_user.bio %></span>
             <span class="author-card-position">Joined: <%= current_user.created_at.strftime("#{current_user.created_at.day.ordinalize} %B %Y") %></span>
           </div>

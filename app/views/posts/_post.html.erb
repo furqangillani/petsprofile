@@ -20,7 +20,7 @@
           </p>
           <div>
             <% post.pictures.each do |pic| %>
-                <%= image_tag pic %>
+                <%= image_tag pic ,style: "width:100%;height:50%"%>
             <% end %>
             <span class="badge badge-primary"><%= post.pet.name %></span>
           </div>
