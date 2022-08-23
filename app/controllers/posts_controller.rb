@@ -1,16 +1,18 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [ :edit, :update, :destroy ]
+  before_action :set_post, only: [ :show, :edit, :update, :destroy ]
 
   def index
+    @posts = Post.all
     @post = Post.new
     @pets = current_user.pets
     @posts = current_user.pets.map { |item| item.posts }
     @service = current_user.services.limit(3)
     @order = current_user.orders.limit(3)
+    @type = current_user.types.limit(3)
+    @pet = current_user.pets.limit(3)
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -19,6 +21,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @pets = current_user.pets
   end
 
   def create

@@ -5,6 +5,10 @@ class OrdersController < ApplicationController
     @orders = current_user.services.map { |item| item.orders }
   end
 
+  def all_orders
+    @orders = current_user.orders.order(created_at:'desc')
+  end
+
   def show
   end
 
@@ -40,7 +44,7 @@ class OrdersController < ApplicationController
 
   private
     def set_order
-      @order = Order.find(params[:id])
+      @order = current_user.orders.find(params[:id])
     end
 
     def order_params

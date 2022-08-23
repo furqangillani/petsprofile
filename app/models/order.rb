@@ -1,7 +1,8 @@
 class Order < ApplicationRecord
 
-  belongs_to :user
+
   belongs_to :service
+  belongs_to :user
 
   validates :title, presence: true
   validates :price, presence: true

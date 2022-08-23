@@ -1,7 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [ :show, :edit, :update, :destroy ]
   def index
-    @profiles = current_user.profile
     @post = current_user.posts
   end
 
@@ -42,10 +41,10 @@ class ProfilesController < ApplicationController
 
   private
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = current_user.profile.find(params[:id])
     end
 
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name)
+      params.require(:profile).permit(:first_name, :last_name, :bio)
     end
 end

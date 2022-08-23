@@ -4,10 +4,15 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse navbar-header animated fadeInUp" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 
       <% if user_signed_in? %>
+
+
+        <li class="nav-item active">
+          <%= link_to "Feeds", posts_path, class:"nav-link" %>
+        </li>
 
         <li class="nav-item active">
           <% if current_user.profile.present? %>
@@ -17,25 +22,6 @@
         <%end%>
         </li>
 
-        <li class="nav-item active">
-          <%= link_to "Feeds", posts_path, class:"nav-link" %>
-        </li>
-
-        <li class="nav-item active">
-          <%= link_to "Types", types_path, class:"nav-link" %>
-        </li>
-
-        <li class="nav-item active">
-          <%= link_to "Pets", pets_path, class:"nav-link" %>
-        </li>
-
-        <li class="nav-item active">
-          <%= link_to "Services", services_path, class:"nav-link" %>
-        </li>
-
-        <li class="nav-item active">
-          <%= link_to "Orders", orders_path, class:"nav-link" %>
-        </li>
         <li class="nav-item active ">
           <%= link_to 'Sign Out' , destroy_user_session_path, :method => :delete , data: { turbo_method: :delete }, class:"nav-link" %>
         </li>

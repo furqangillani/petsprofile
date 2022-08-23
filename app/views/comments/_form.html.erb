@@ -5,8 +5,14 @@
     <input type="hidden", name="comment[parent_id]" value="<%= parent.id %>">
   <% end %>
   <div>
-    <textarea name="comment[content]" ></textarea>
-    <input class="comment" type="submit" value="Comment">
+    <div style="width: 50px; float: left; padding-left: 20px; padding-top: 13px">
+      <textarea name="comment[content]" style="resize: none; border-radius: 10px"></textarea>
+    </div>
+    <div style="width: 50px; float: right; padding-top: 7px">
+      <p style="float: right">
+        <input class="comment" type="submit" value="Comment">
+      </p>
+    </div>
   </div>
 
 </form>

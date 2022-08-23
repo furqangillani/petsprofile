@@ -3,10 +3,9 @@
     <div class="col-md-3">
       <div class="card">
         <div class="card-body">
-          <div class="h5">@<%= current_user.profile.first_name %></div>
-          <div class="h7 text-muted">Name : <%= current_user.profile.first_name %> <%= current_user.profile.last_name %> </div>
+          <div class="h5"><%= link_to "@#{current_user.profile.first_name}", profiles_path %></div>
+          <div class="h7 text-muted">Bio : <%= current_user.profile.bio %></div>
           <div class="h7">
-            <%= current_user.bio %>
           </div>
         </div>
         <ul class="list-group list-group-flush">
@@ -25,9 +24,34 @@
           <li class="list-group-item">User info <%= link_to 'See', profiles_path %></li>
         </ul>
       </div>
+      <div class="card gedf-card">
+        <div class="card-body">
+          <h5 class="card-title">Your's Pet Category</h5>
+          <%= link_to 'All Categories', types_path, class: 'card-link' %>
+          <hr>
+          <% @type.each do |record| %>
+            <h3 class="card-subtitle mb-2 text-muted">Name: <%= record.name %></h3>
+            <%= link_to "Details", types_path, class: "card-link" %>
+          <%end%>
+          <hr>
+          <%= link_to 'Add New Category', types_path, class: 'card-link' %>
+        </div>
+      </div>
+      <div class="card gedf-card">
+        <div class="card-body">
+          <h5 class="card-title">Your's Pet</h5>
+          <%= link_to 'All Pets', pets_path, class: 'card-link' %>
+          <hr>
+          <% @pet.each do |record| %>
+            <h4 class="card-subtitle mb-2 text-muted">Name: <%= record.name %></h4>
+            <%= link_to "Details", types_path, class: "card-link" %>
+          <%end%>
+          <hr>
+          <%= link_to 'Add New Pet', pets_path, class: 'card-link' %>
+        </div>
+      </div>
     </div>
     <div class="col-md-6 gedf-main">
-
         <%= render 'posts/form', post: @post %>
           <% @posts.each do |post| %>
             <% if post.present? %>
@@ -40,7 +64,7 @@
     <div class="col-md-3">
       <div class="card gedf-card">
         <div class="card-body">
-          <h5 class="card-title"><%= current_user.profile.first_name %> <%= current_user.profile.last_name %> Services</h5>
+          <h5 class="card-title">Your Services</h5>
           <%= link_to 'All Services', services_path, class: 'card-link' %>
           <hr>
           <% @service.each do |record| %>
@@ -53,7 +77,7 @@
       </div>
       <div class="card gedf-card">
         <div class="card-body">
-          <h5 class="card-title"><%= current_user.profile.first_name %> <%= current_user.profile.last_name %> Orders</h5>
+          <h5 class="card-title">Your Orders</h5>
           <%= link_to 'All Orders', orders_path, class: 'card-link' %>
           <hr>
           <% @order.each do |record| %>

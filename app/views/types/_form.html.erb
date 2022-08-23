@@ -4,7 +4,7 @@
       <%= form_with(model: type) do |form| %>
         <label>Category Name</label>
         <div style="margin-bottom: 25px" class="input-group">
-          <%= form.text_field :name,  class: 'form-control', style: 'border-radius:10px'%>
+          <%= form.text_field "type[name]",  class: 'form-control', style: 'border-radius:10px'%>
           <%# if type.errors.any? %>
             <%# type.errors.each do |error| %>
 <!--              <div class="alert alert-danger col-sm-12">><%#= error.full_message %></div>-->
@@ -13,7 +13,7 @@
         </div>
         <label>Category Description</label>
         <div style="margin-bottom: 25px" class="input-group">
-          <%= form.text_area :description, class: 'form-control', style: 'border-radius:10px' %>
+          <%= form.text_area "type[description]", class: 'form-control', style: 'border-radius:10px' %>
         </div>
         <%= form.submit class:'btn btn-primary' %>
       <%end%>

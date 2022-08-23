@@ -6,7 +6,7 @@
       <small>posted <%= time_ago_in_words(@post.created_at) %> ago.</small>
     </div>
     <div style="width: 50%; float: right">
-      <p style="float: right; margin-top: 15px">
+       <p style="float: right; margin-top: 15px">
         <%= link_to "Edit", edit_post_path(@post) %> |
         <%= link_to "Back", posts_path %>
       </p>

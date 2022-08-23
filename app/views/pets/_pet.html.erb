@@ -1,8 +1,10 @@
+
+
 <div class="col-md-4">
   <div class="card user-card">
     <div class="card-header">
       <h5>by: <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></h5>
-      <%= link_to "EDIT", edit_pet_path(pet) %> | <%= button_to "DELETE", pet_path(pet), method: :delete %>
+      <%= link_to "EDIT", edit_pet_path(pet) %> | <%= button_to "DELETE", pet_path(pet), method: :delete %> <hr>
     </div>
     <div class="card-block">
       <div class="user-image">

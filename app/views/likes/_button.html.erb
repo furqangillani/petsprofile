@@ -1,6 +1,8 @@
 <div>
-  <%= likeable.likes.count %> Likes
- <div class="float-right">
+  <div style="float: left; padding-top: 15px">
+    <%= likeable.likes.count %> Like
+  </div>
+ <div style="float: right">
     <% like = current_user.likes.find_by(likeable: likeable) %>
     <% if like.nil? %>
       <form action="/likes" method="post">

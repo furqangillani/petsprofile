@@ -1,7 +1,7 @@
 class Pet < ApplicationRecord
 
   belongs_to :user
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   validates :name, presence: true
   validates :breed, presence: true

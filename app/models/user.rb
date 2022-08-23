@@ -6,8 +6,7 @@ class User < ApplicationRecord
   has_many :likes
   has_many :services, dependent: :destroy
   has_one :profile
-  has_many :pets
-  has_many :orders, dependent: :destroy
+  has_many :pets, dependent: :destroy
   has_many :types, dependent: :destroy
 
 

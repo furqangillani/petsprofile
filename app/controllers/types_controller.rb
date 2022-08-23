@@ -9,7 +9,7 @@ class TypesController < ApplicationController
   end
 
   def new
-    @type = Type.newpos
+    @type = Type.new
   end
 
   def edit
