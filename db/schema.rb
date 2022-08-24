@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_124032) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_24_150751) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -93,6 +93,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_124032) do
     t.string "gender"
     t.string "description"
     t.boolean "status", default: true
+    t.integer "type_id", null: false
+    t.index ["type_id"], name: "index_pets_on_type_id"
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
@@ -160,6 +162,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_124032) do
   add_foreign_key "likes", "users"
   add_foreign_key "orders", "services"
   add_foreign_key "orders", "users"
+  add_foreign_key "pets", "types"
   add_foreign_key "pets", "users"
   add_foreign_key "posts", "pets"
   add_foreign_key "posts", "users"

@@ -1,5 +1,5 @@
 <br>
-<div class="card">
+<div class="card" id="hidepost">
   <div class="card-header">
     <div style="width: 50%; float: left">
       <%= @post.user.full_name %> <br>
@@ -35,3 +35,11 @@
   </div>
 </div>
 <br>
+
+
+<script>
+    function hideInput() {
+        var cardDiv = document.getElementById("hidepost");
+        cardDiv.style.display === "block" ?  cardDiv.style.display = 'none' : cardDiv.style.display = 'block';
+    }
+</script>

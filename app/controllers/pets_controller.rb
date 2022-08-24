@@ -3,6 +3,8 @@ class PetsController < ApplicationController
   def index
     @pet = Pet.new
     @pets = current_user.pets
+    @types = current_user.types
+    @pets = current_user.types.map { |item| item.pets }
   end
 
   def all_pets
@@ -17,6 +19,11 @@ class PetsController < ApplicationController
   end
 
   def edit
+    @types =  current_user.types
+  end
+
+  def private
+
   end
 
   def create
@@ -51,6 +58,6 @@ class PetsController < ApplicationController
     end
 
     def pet_params
-      params.require(:pet).permit(:name, :breed, :age, :gender, :description, :bio)
+      params.require(:pet).permit(:name, :breed, :gender, :age, :description, :type_id)
     end
 end

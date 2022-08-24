@@ -4,7 +4,7 @@
       <%= form_with(model: pet) do |form| %>
         <label>Name</label>
         <div style="margin-bottom: 25px" class="input-group">
-          <%= form.text_field :name,  class: 'form-control', style: 'border-radius:10px'%>
+          <%= form.text_field :name, class: 'form-control', style: 'border-radius:10px'%>
           <%# if pet.errors.any? %>
             <%# pet.errors.each do |error| %>
 <!--              <div class="alert alert-danger col-sm-12">><%#= error.full_message %></div>-->
@@ -21,11 +21,14 @@
         </div>
         <label>Age</label>
         <div style="margin-bottom: 25px" class="input-group">
-          <%= form.text_field :age,class: 'form-control', style: 'border-radius:10px' %>
+          <%= form.text_field :age, class: 'form-control', style: 'border-radius:10px' %>
         </div>
         <label>Bio</label>
         <div style="margin-bottom: 25px" class="input-group">
-          <%= form.text_field :description,class: 'form-control', style: 'border-radius:10px' %>
+          <%= form.text_field :description, class: 'form-control', style: 'border-radius:10px' %>
+        </div>
+        <div style="margin-bottom: 25px" class="input-group">
+          <p class="list-group-item">Select Category : <%= form.collection_select :type_id, @types, :id, :name, include_blank: true %></p>
         </div>
         <%= form.submit class:'btn btn-primary' %>
       <%end%>

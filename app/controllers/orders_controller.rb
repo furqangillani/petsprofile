@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    @services = current_user.services
   end
 
   def create
@@ -43,7 +44,7 @@ class OrdersController < ApplicationController
 
   def destroy
     @order.destroy
-      redirect_to orders_path, notice: "Order was successfully destroyed."
+      redirect_to orders_user_orders_path, notice: "Order was successfully destroyed."
   end
 
   private

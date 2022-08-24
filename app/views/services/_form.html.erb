@@ -4,7 +4,7 @@
         <%= form_with(model: service) do |form| %>
           <label>Service Title</label>
           <div style="margin-bottom: 25px" class="input-group">
-            <%= form.text_field :title,  class: 'form-control', style: 'border-radius:10px'%>
+            <%= form.text_field :title, class: 'form-control', style: 'border-radius:10px'%>
             <% if service.errors.any? %>
               <% service.errors.each do |error| %>
                 <div class="alert alert-danger col-sm-12">><%= error.full_message %></div>
@@ -17,7 +17,7 @@
           </div>
           <%= form.label :price, style: "display: block" %>
           <div style="margin-bottom: 25px" class="input-group">
-            <%= form.number_field :price,class: 'form-control', style: 'border-radius:10px' %>
+            <%= form.number_field :price, class: 'form-control', style: 'border-radius:10px' %>
           </div>
           <%= form.submit class:'btn btn-primary' %>
           <%end%>

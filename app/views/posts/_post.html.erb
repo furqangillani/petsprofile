@@ -1,4 +1,4 @@
-      <div class="card gedf-card" id="hidepost">
+      <div class="card gedf-card" id=hidepost>
         <div class="card-header">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-between align-items-center">
@@ -13,7 +13,7 @@
 
                 </div>
               </div>
-            <%= link_to "EDIT", edit_post_path(post) %> | <%= button_to "DELETE", post_path(post), method: :delete %>
+              <%= link_to "EDIT", edit_post_path(post) %> | <%= button_to "DELETE", post_path(post), method: :delete %>
           </div>
 
         </div>
@@ -81,6 +81,15 @@
             });
         })
       </script>
+
+
+      <script>
+          function hideInput() {
+              var postDiv = document.getElementById("hidepost");
+              postDiv.style.display === "block" ?  postDiv.style.display = 'none' : postDiv.style.display = 'block';
+          }
+      </script>
+
 
 
 

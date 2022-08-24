@@ -25,6 +25,7 @@ class TypesController < ApplicationController
     end
 
   def update
+    debugger
       if @type.update(type_params)
         redirect_to type_path(@type), notice: "Type was successfully updated."
       else
