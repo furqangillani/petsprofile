@@ -34,7 +34,7 @@
             <%= post.likes.count %> Like
           </div>
             <div class="float-right">
-              <% like = post.likes.find_by(likeable: post) %>
+              <% like = current_user.likes.find_by(likeable: post) %>
               <% if like.nil? %>
                 <form action="/likes" method="post">
                   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -59,7 +59,7 @@
               <div>
                 <div style="width: 50%; float: left">
                   <p>
-                    <small> by <%= current_user.profile.first_name %></small><br>
+                    <small> by <%= comment.user.profile.first_name %></small><br>
                   <%= comment.content %> <br>
                     <small><%= time_ago_in_words(comment.created_at) %> ago</small>
                   </p>
