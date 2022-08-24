@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @posts = Post.all
+    @all_post = Post.all
     @post = Post.new
     @pets = current_user.pets
     @posts = current_user.pets.map { |item| item.posts }

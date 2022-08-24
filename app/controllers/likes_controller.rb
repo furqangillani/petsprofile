@@ -1,7 +1,9 @@
 class LikesController < ApplicationController
-  def create
+
+    def create
     @like = current_user.likes.new(like_params)
     if @like.save
+
       redirect_back(fallback_location: 'index')
     end
   end

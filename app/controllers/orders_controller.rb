@@ -12,6 +12,10 @@ class OrdersController < ApplicationController
   def show
   end
 
+  def user_orders
+    @order = current_user.orders
+  end
+
   def new
     @order = Order.new
     @services = Service.all

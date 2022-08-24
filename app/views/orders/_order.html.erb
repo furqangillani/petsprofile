@@ -1,7 +1,7 @@
       <div class="col-md-4">
         <div class="card user-card">
           <div class="card-header">
-            <h5>by: <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></h5>
+            <h5>by: <b>@</b><%= order.user.profile.first_name%></h5>
             <%= link_to "EDIT", edit_order_path(order) %> | <%= button_to "DELETE", order_path(order), method: :delete %>
 
           </div>

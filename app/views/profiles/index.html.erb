@@ -31,7 +31,10 @@
             <%= link_to 'Services', services_path %>
           </div>
           <div style="background-color: #fff; height: 30px; padding-top: 5px; text-align:  center">
-            <%= link_to 'Orders', orders_path %>
+            <%= link_to 'My Orders', orders_user_orders_path %>
+          </div>
+          <div style="background-color: #fff; height: 30px; padding-top: 5px; text-align:  center">
+            <%= link_to 'Orders Received', orders_path %>
           </div>
           <div style="background-color: #fff; height: 30px; padding-top: 5px; text-align:  center">
             <%= link_to 'Categories', types_path %>
@@ -76,8 +79,8 @@
           <a class="cart-item-product" href="#">
             <div class="cart-item-product-thumb">
               <% if record.pictures.present?  %>
-              <%= image_tag record.pictures.first %>
-                <%end %>
+                <%= image_tag record.pictures.first %>
+              <%end %>
             </div>
             <div class="cart-item-product-info">
               <h4 class="cart-item-product-title"><%= record.description %></h4>

@@ -3,7 +3,7 @@
     <div class="col-md-3">
       <div class="card">
         <div class="card-body">
-          <div class="h5"><%= link_to "@#{current_user.profile.first_name}", profiles_path %></div>
+          <div class="h5"><%= link_to "#{current_user.profile.first_name}", profiles_path %></div>
           <div class="h7 text-muted">Bio : <%= current_user.profile.bio %></div>
           <div class="h7">
           </div>
@@ -53,9 +53,9 @@
     </div>
     <div class="col-md-6 gedf-main">
         <%= render 'posts/form', post: @post %>
-          <% @posts.each do |post| %>
+          <% @all_post.each do |post| %>
             <% if post.present? %>
-              <% if post.first.pet.status == true %>
+              <% if post.pet.status == true %>
                 <%= render post %>
               <% end %>
             <%end%>
@@ -78,7 +78,7 @@
       <div class="card gedf-card">
         <div class="card-body">
           <h5 class="card-title">Your Orders</h5>
-          <%= link_to 'All Orders', orders_path, class: 'card-link' %>
+          <%= link_to 'All Orders', orders_user_orders_path, class: 'card-link' %>
           <hr>
           <% @order.each do |record| %>
             <h3 class="card-subtitle mb-2 text-muted">Name: <%= record.title %></h3>
