@@ -43,7 +43,7 @@
           <%= link_to 'All Pets', pets_path, class: 'card-link' %>
           <hr>
           <% @pet.each do |record| %>
-            <h4 class="card-subtitle mb-2 text-muted">Name: <%= record.name %><small><i> (<%= record.type.name %>)</i></small></h4>
+            <h4 class="card-subtitle mb-2 text-muted">Name: <%= record.name %><small><i>(<%= record.type.name %>)</i></small></h4>
             <%= link_to "Details", pets_path, class: "card-link" %>
           <%end%>
           <hr>
@@ -81,7 +81,7 @@
           <%= link_to 'All Orders', orders_user_orders_path, class: 'card-link' %>
           <hr>
           <% @order.each do |record| %>
-            <h4 class="card-subtitle mb-2 text-muted">Name: <%= record.title %> <small><i> (<%= record.service.title %>)</i></small></h4>
+            <h4 class="card-subtitle mb-2 text-muted">Name: <%= record.title %><small><i>(<%= record.service.title %>)</i></small></h4>
             <%= link_to "Details", orders_user_orders_path, class: "card-link" %>
           <% end %>
           <hr>

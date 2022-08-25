@@ -7,11 +7,9 @@
               </div>
               <div class="ml-2">
                 <div class="h5 m-0">
-                  <%= link_to "#{post.user.profile.first_name} #{post.user.profile.last_name}", profiles_path %></div>
+                  <%= post.user.profile.first_name %> <%= post.user.profile.last_name %>
                 </div>
-                <div>
-
-                </div>
+              </div>
               </div>
               <%= link_to "EDIT", edit_post_path(post) %> | <%= button_to "DELETE", post_path(post), method: :delete %>
           </div>
@@ -60,13 +58,24 @@
                 <div style="width: 50%; float: left">
                   <p>
                     <small> by <%= comment.user.profile.first_name %></small><br>
-                  <%= comment.content %> <br>
+                    <%= comment.content %> <br>
                     <small><%= time_ago_in_words(comment.created_at) %> ago</small>
                   </p>
                 </div>
                 <div style="width: 50%; float: right">
                   <span style="float: right"> <%= render partial: 'likes/button', locals: { likeable: comment} %></span></div>
                 </div>
+
+            <article>
+              <a href="#" class="comment-form-display reply" >reply</a>
+              <div class="comment-form">
+                <%= render partial: 'comments/form', locals: { post: comment.post, parent: comment } %>
+              </div>
+              <div class="sub-comment">
+                <%= render comment.comments.order(id: :desc)%>
+              </div>
+            </article>
+
               <div>
                  <%= render post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
                </div>
@@ -74,13 +83,13 @@
         </div>
       </div>
 
-      <script>
-        $(document).ready(function (){
-            $(".show_reply").click(function (){
-                alert(this.attr("id"));
-            });
-        })
-      </script>
+<!--      <script>-->
+<!--        $(document).ready(function (){-->
+<!--            $(".show_reply").click(function (){-->
+<!--                alert(this.attr("id"));-->
+<!--            });-->
+<!--        })-->
+<!--      </script>-->
 
 
       <script>

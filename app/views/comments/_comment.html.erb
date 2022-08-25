@@ -1,18 +1,18 @@
-<article>
+<!--<article>-->
 
-  <a href="#" class="comment-form-display reply" >reply</a>
+<!--  <a href="#" class="comment-form-display reply" >reply</a>-->
 
-  <div class="comment-form">
-    <%= render partial: 'comments/form', locals: { post: comment.post, parent: comment } %>
-  </div>
+<!--  <div class="comment-form">-->
+    <%#= render partial: 'comments/form', locals: { post: comment.post, parent: comment } %>
+<!--  </div>-->
 
 
 
-  <div class="sub-comment">
-    <%= render comment.comments.order(id: :desc)%>
-  </div>
+<!--  <div class="sub-comment">-->
+    <%#= render comment.comments.order(id: :desc)%>
+<!--  </div>-->
 
-</article>
+<!--</article>-->
 
 <script>
     document.querySelectorAll('.comment-form-display').forEach((el) => {

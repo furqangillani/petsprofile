@@ -1,6 +1,6 @@
-/*.sub-comment {*/
-/*    padding-left: 10px;*/
-/*}*/
+.sub-comment {
+    padding-left: 30px;
+}
 
 /*.navbar{*/
 /*    border-radius: 5px;*/
@@ -33,20 +33,20 @@
 /*.float-right {*/
 /*}*/
 
-/*.comment-form {*/
-/*    display: none;*/
-/*}*/
+.comment-form {
+    display: none;
+}
 
-/*.comment {*/
-/*    float: right;*/
-/*    margin-top: 1px;*/
-/*    height: 50px;*/
-/*}*/
+.comment {
+    float: right;
+    margin-top: 1px;
+    height: 50px;
+}
 
-/*.reply {*/
-/*    float: right;*/
-/*    margin-right: 20px;*/
-/*}*/
+.reply {
+    float: right;
+    margin-right: 20px;
+}
 
 /*.scroll {*/
 /*    max-height: 250px;*/
