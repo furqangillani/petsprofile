@@ -53,6 +53,7 @@
     </div>
     <div class="col-md-6 gedf-main">
         <%= render 'posts/form', post: @post %>
+          <p style="color: red"><%= alert %></p>
           <% @all_post.each do |post| %>
             <% if post.present? %>
               <% if post.pet.status == true %>

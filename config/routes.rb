@@ -11,11 +11,16 @@ Rails.application.routes.draw do
   end
 
   resources :pets
+
+  # get '/show_pet', to: 'pets#show_pet'
+  # get '/hide_pet', to: 'pets#hide_pet'
+
   resources :services do
     collection do
       get :all_services
     end
   end
+
   resources :orders
   resources :profiles
   resources :likes, only: [:create, :destroy]

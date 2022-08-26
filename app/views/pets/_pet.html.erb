@@ -5,7 +5,9 @@
     <div class="card-header">
       <h5>by: <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></h5>
       <%= link_to "EDIT", edit_pet_path(pet) %> | <%= button_to "DELETE", pet_path(pet), method: :delete %>
+      <%= link_to "Hide",hide_pet_path(id: pet.id)  %> | <%= link_to "Show", show_pet_path(id: pet.id)  %>
     </div>
+<!--    <p class="text-muted">Visiablity Status: <%#= pet.status %></p>-->
     <div class="card-block">
       <hr><p class="text-muted"><%= pet.type.name %></p><hr>
       <div class="user-image">
@@ -18,6 +20,5 @@
       <hr>
       <p class="m-t-15 text-muted"><%= pet.description %> </p>
     </div>
-    <%= button_tag "Show/Hide", :onclick => "hideInput()" %>
   </div>
 </div>

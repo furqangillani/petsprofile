@@ -22,9 +22,19 @@ class PetsController < ApplicationController
     @types =  current_user.types
   end
 
-  def private
+  # def show_pet
+  #   @pet = Pet.find_by(id: params[:id])
+  #   @pet.update!(:status => true)
+  #   redirect_to pets_path
+  # end
+  #
+  # def hide_pet
+  #   debugger
+  #   @pet = Pet.find_by(id: params[:id])
+  #   @pet.update!(:status => false)
+  #   redirect_to pets_path
+  # end
 
-  end
 
   def create
     @pet = current_user.pets.new(pet_params)

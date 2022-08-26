@@ -22,6 +22,11 @@ class PostsController < ApplicationController
 
   def edit
     @pets = current_user.pets
+    if @post.present?
+      @post
+    else
+      redirect_to posts_path, alert: "This post does not belong to you."
+    end
   end
 
   def create
@@ -41,19 +46,21 @@ class PostsController < ApplicationController
       end
   end
 
-  # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post.destroy
-    redirect_to posts_path, notice: "Post was successfully destroyed."
+    if @post.present?
+      @post.destroy
+      redirect_to posts_path, notice: "Post was successfully destroyed."
+    else
+      redirect_to posts_path, alert: "This post does not belong to you."
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_post
-      @post = current_user.posts.find(params[:id])
+      @post = current_user.posts.find_by(id:params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:description, :pet_id, pictures: [])
     end

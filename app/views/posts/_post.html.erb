@@ -63,11 +63,12 @@
                   </p>
                 </div>
                 <div style="width: 50%; float: right">
-                  <span style="float: right"> <%= render partial: 'likes/button', locals: { likeable: comment} %></span></div>
+                  <span style="float: right"> <%= render partial: 'likes/button', locals: { likeable: comment} %></span>
                 </div>
-
+              </div>
             <article>
               <a href="#" class="comment-form-display reply" >reply</a>
+
               <div class="comment-form">
                 <%= render partial: 'comments/form', locals: { post: comment.post, parent: comment } %>
               </div>
@@ -75,13 +76,22 @@
                 <%= render comment.comments.order(id: :desc)%>
               </div>
             </article>
-
-              <div>
-                 <%= render post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
-               </div>
+            <div>
+              <%= render post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
+            </div>
           <% end %>
         </div>
       </div>
+
+
+        <script>
+            document.querySelectorAll('.comment-form-display').forEach((el) => {
+                el.addEventListener('click', (ev) => {
+                    ev.preventDefault();
+                    el.nextElementSibling.style = 'display: block;'
+                })
+            })
+        </script>
 
 <!--      <script>-->
 <!--        $(document).ready(function (){-->
@@ -92,12 +102,12 @@
 <!--      </script>-->
 
 
-      <script>
-          function hideInput() {
-              var postDiv = document.getElementById("hidepost");
-              postDiv.style.display === "block" ?  postDiv.style.display = 'none' : postDiv.style.display = 'block';
-          }
-      </script>
+<!--      <script>-->
+<!--          function hideInput() {-->
+<!--              var postDiv = document.getElementById("hidepost");-->
+<!--              postDiv.style.display === "block" ?  postDiv.style.display = 'none' : postDiv.style.display = 'block';-->
+<!--          }-->
+<!--      </script>-->
 
 
 
