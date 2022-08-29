@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :pets
 
-  # get '/show_pet', to: 'pets#show_pet'
-  # get '/hide_pet', to: 'pets#hide_pet'
+  get '/show_pet', to: 'pets#show_pet'
+  get '/hide_pet', to: 'pets#hide_pet'
 
   resources :services do
     collection do

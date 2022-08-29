@@ -17,7 +17,7 @@
           <%= form.number_field :price, class: 'form-control', style: 'border-radius:10px' %>
         </div>
         <div style="margin-bottom: 25px" class="input-group">
-          <p class="list-group-item">Select Service <%= form.collection_select "order[service_id]", @services, :id, :title, include_blank: true %></p>
+          <p class="list-group-item">Select Service <%= form.collection_select :service_id, @services, :id, :title, include_blank: true %></p>
         </div>
         <%= form.submit class:'btn btn-primary' %>
       <% end %>

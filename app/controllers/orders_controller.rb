@@ -1,19 +1,20 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [ :show, :edit, :update, :destroy ]
   def index
+    @order = Order.new
     @services = Service.all
     @orders = current_user.services.map { |item| item.orders }
   end
 
   def all_orders
-    @orders = current_user.orders.order(created_at:'desc')
+    @order = current_user.orders
   end
 
   def show
   end
 
   def user_orders
-    @order = current_user.orders
+    @orders = current_user.orders.order(created_at:'desc')
   end
 
   def new
@@ -26,6 +27,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    debugger
     @order = current_user.orders.new(order_params)
       if @order.save
         redirect_to order_path(@order), notice: "Order was successfully created."

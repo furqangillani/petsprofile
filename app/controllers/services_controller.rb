@@ -1,10 +1,9 @@
-class ServicesController < ApplicationController
+ class ServicesController < ApplicationController
   before_action :set_service, only: [ :show, :edit, :update, :destroy ]
   def index
     @service = Service.new
     @services = current_user.services.order(created_at:'desc')
   end
-
 
   def all_services
     @services = current_user.services.order(created_at:'desc')

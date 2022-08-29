@@ -2,6 +2,7 @@ class TypesController < ApplicationController
   before_action :set_type, only: [ :show, :edit, :update, :destroy ]
 
   def index
+    @type = Type.new
     @types = current_user.types
   end
 
@@ -25,7 +26,6 @@ class TypesController < ApplicationController
     end
 
   def update
-    debugger
       if @type.update(type_params)
         redirect_to type_path(@type), notice: "Type was successfully updated."
       else

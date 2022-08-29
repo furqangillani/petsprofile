@@ -1,38 +1,38 @@
-<!--<br>-->
-<!--<div class="card" id="hidepost">-->
-<!--  <div class="card-header">-->
-<!--    <div style="width: 50%; float: left">-->
-<!--      <%#= @post.user.full_name %> <br>-->
-<!--      <small>posted <%#= time_ago_in_words(@post.created_at) %> ago.</small>-->
-<!--    </div>-->
-<!--    <div style="width: 50%; float: right">-->
-<!--       <p style="float: right; margin-top: 15px">-->
-<!--        <%#= link_to "Edit", edit_post_path(@post) %> |-->
-        <%#= link_to "Back", posts_path %>
-<!--      </p>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="card-body">-->
-<!--    <p class="card-text"><%#= @post.description %></p>-->
-<!--    <p>-->
-      <%# @post.pictures.each do |single_image| %>
-        <%#= image_tag single_image, height: '350px', width: '700px' %>
-      <%# end %>
-<!--    </p>-->
-<!--  </div>-->
-<!--  <div class="card-footer">-->
-    <%#= render partial: 'likes/button', locals: { likeable: @post } %>
-<!--    <div class="fl">-->
-      <%#= render partial: 'comments/form', locals: { post: @post, parent: nil } %>
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="card-body">-->
-<!--    <hr/>-->
-<!--    <div class="scroll">-->
-      <%#= render @post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
-<!--    </div>-->
+<br>
+<div class="card" id="hidepost">
+  <div class="card-header">
+    <div style="width: 50%; float: left">
+      <%= @post.user.full_name %> <br>
+      <small>posted <%= time_ago_in_words(@post.created_at) %> ago.</small>
+    </div>
+    <div style="width: 50%; float: right">
+       <p style="float: right; margin-top: 15px">
+        <%= link_to "Edit", edit_post_path(@post) %> |
+        <%= link_to "Back", posts_path %>
+      </p>
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= @post.description %></p>
+    <p>
+      <% @post.pictures.each do |single_image| %>
+        <%= image_tag single_image, height: '350px', width: '700px' %>
+      <% end %>
+    </p>
+  </div>
+  <div class="card-footer">
+    <%= render partial: 'likes/button', locals: { likeable: @post } %>
+    <div class="fl">
+      <%= render partial: 'comments/form', locals: { post: @post, parent: nil } %>
+    </div>
+  </div>
+  <div class="card-body">
+    <hr/>
+    <div class="scroll">
+      <%= render @post.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
+    </div>
 
-<!--  </div>-->
-<!--</div>-->
-<!--<br>-->
+  </div>
+</div>
+<br>
 

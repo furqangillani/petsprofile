@@ -1,11 +1,11 @@
 class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :orders, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :services, dependent: :destroy
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_many :pets, dependent: :destroy
   has_many :types, dependent: :destroy
 
